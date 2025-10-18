@@ -34,7 +34,8 @@ The AUV is built on the following primary subsystems:
 - Versioning of dependencies and environment scripts included in `/env` (or requirements file).
 
 ### Module Structure  
-```/src
+```bash
+/src
 ├─ hardware_interface/
 │ ├ motors.py
 │ ├ sensors.py
