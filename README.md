@@ -9,9 +9,7 @@ This was done in collaboration with Bobby Wang, Naomi Naranjo, and Matthew Weng
 
 ## Demonstration  
 Here is a test-run video from a recent pool/test-tank run:  
-[Sinkers AUV Test Run](https://www.govconwire.com/2017/12/video-bluefin-sandshark-micro-auvs-conduct-simulated-missions-with-a-bluefin-21-uuv/?utm_source=chatgpt.com)
-  
-_(If the above video does not embed correctly, view it on YouTube: https://www.youtube.com/watch?v=z71xyqpF_E0)_
+[![Sinkers AUV Test Run](https://img.youtube.com/vi/z71xyqpF_E0/0.jpg)](https://www.youtube.com/watch?v=z71xyqpF_E0)
 
 ## Key Capabilities  
 - Autonomous mission execution: waypoint navigation, object detection, buoy manipulation, return to base.  
