@@ -2,7 +2,7 @@
 # Sinkers – MIT BWSI AUV Challenge
 
 ## Project Overview
-The **Sinkers** project was developed for the MIT Lincoln Labs **Beaver Works Summer Institute** (BWSI) Autonomous Underwater Vehicle Challenge.  In this competition teams design, build and program a BlueFin Sandshark AUV to navigate a buoy field course.  This repository contains the flight‑software, sensor drivers, control logic, mission automation and test protocols used by the team’s AUVhttps://github.com/ArcKnight01/Sinkers/blob/HEAD/README.md#L3-L9.  For additional context and media, see this project page [https://www.aidanrc.com/mit-bwsi-auv-challenge
+The **Sinkers** project was developed for the MIT Lincoln Labs **Beaver Works Summer Institute** (BWSI) Autonomous Underwater Vehicle Challenge.  In this competition teams design, build and program a BlueFin Sandshark AUV to navigate a buoy field course.  This repository contains the flight‑software, sensor drivers, control logic, mission automation and test protocols used by the team’s AUV. For additional context and media, see this project page [https://www.aidanrc.com/mit-bwsi-auv-challenge
 ](https://www.aidanrc.com/mit-bwsi-auv-challenge)
 
 ## Hardware Architecture
@@ -16,7 +16,7 @@ This AUV uses a modular architecture with the following major subsystems:
 | **Power**        | 12 V battery with 5 V logic regulator; common ground and waterproof connectors | Power distribution      |
 
 ### Pinout Summary
-The original BlueFin Sandshark hardware uses the following pin mappingshttps://github.com/ArcKnight01/Sinkers/blob/HEAD/README.md#L94-L104.  If you modify the wiring or use a different board, update these accordingly.
+The original BlueFin Sandshark hardware uses the following pin mappings.  If you modify the wiring or use a different board, update these accordingly.
 
 | Device/Signal      | Pin(s)                        | Notes                                     |
 |--------------------|-------------------------------|-------------------------------------------|
