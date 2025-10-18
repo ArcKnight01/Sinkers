@@ -67,7 +67,7 @@ Although the core loop remains, this repository only implements the camera and c
    sudo apt update && sudo apt upgrade -y
    sudo apt install python3-pip python3-gpiozero python3-opencv
    pip3 install numpy opencv-python pyserial
-   ```https://github.com/ArcKnight01/Sinkers/blob/HEAD/README.md#L70-L90
+   ```
 
 3. **Calibrate sensors:**
 
@@ -97,12 +97,12 @@ Below are test runs from our AUV challenge playlist.  Each thumbnail links to th
 
 | Run | Embedded Video | Summary |
 |----|---|---|
-| **Test Run #2** | [![Run 2](https://img.youtube.com/vi/rft1sYsLbGc/0.jpg)](https://www.youtube.com/watch?v=rft1sYsLbGc) | Early trial navigating buoysview-source:https://www.youtube.com/feeds/videos.xml#:~:text=%3Cid%3Eyt%3Avideo%3Arft1sYsLbGc%3C%2Fid%3E%20%3Cyt%3AvideoId%3Erft1sYsLbGc%3C%2Fyt%3AvideoId%3E%20%3Cyt%3AchannelId%3EUCm,flash%22%20width%3D%22640%22%20height%3D%22390 |
-| **Test Run #3** | [![Run 3](https://img.youtube.com/vi/z71xyqpF_E0/0.jpg)](https://www.youtube.com/watch?v=z71xyqpF_E0) | Improved run with slower speedview-source:https://www.youtube.com/feeds/videos.xml#:~:text=%3Centry%3E%20%3Cid%3Eyt%3Avideo%3Az71xyqpF_E0%3C%2Fid%3E%20%3Cyt%3AvideoId%3Ez71xyqpF_E0%3C%2Fyt%3AvideoId%3E%20%3Cyt%3AchannelId%3EUCm,360 |
-| **Test Run Fail** | [![Fail](https://img.youtube.com/vi/G_wWVP8iRcc/0.jpg)](https://www.youtube.com/watch?v=G_wWVP8iRcc) | Failure mode demonstrationview-source:https://www.youtube.com/feeds/videos.xml#:~:text=%3Centry%3E%20%3Cid%3Eyt%3Avideo%3AG_wWVP8iRcc%3C%2Fid%3E%20%3Cyt%3AvideoId%3EG_wWVP8iRcc%3C%2Fyt%3AvideoId%3E%20%3Cyt%3AchannelId%3EUCm,360 |
+| **Test Run #2** | [![Run 2](https://img.youtube.com/vi/rft1sYsLbGc/0.jpg)](https://www.youtube.com/watch?v=rft1sYsLbGc) | Early trial navigating buoys  |
+| **Test Run #3** | [![Run 3](https://img.youtube.com/vi/z71xyqpF_E0/0.jpg)](https://www.youtube.com/watch?v=z71xyqpF_E0) | Improved run with slower speedview |
+| **Test Run Fail** | [![Fail](https://img.youtube.com/vi/G_wWVP8iRcc/0.jpg)](https://www.youtube.com/watch?v=G_wWVP8iRcc) | Failure mode demonstration |
 
 ## License
-This project is released under the **MIT License**https://github.com/ArcKnight01/Sinkers/blob/HEAD/README.md#L131-L138.
+This project is released under the **MIT License**
 
 ## Acknowledgements
 Thanks to the MIT BWSI instructors and mentors (especially Madeleine Miller and Joseph Edwards), BWSI director Joel Grimm, and our awesome TA Joseph Ntaimo, and to our teammates Aidan Carrier, Bobby Wang, Naomi Naranjo, and Matthew Weng for their contributions.
