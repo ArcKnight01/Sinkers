@@ -65,6 +65,8 @@ while mission_not_done:
     log.write(sensor_data, command)
 shutdown safe
 ```
+
+
 Setup & Duplication Guide
 
 1. Prepare System
@@ -79,13 +81,13 @@ git clone https://github.com/ArcKnight01/Sinkers.git
 cd Sinkers
 
 2. Install Dependencies
+```bash
 sudo apt update && sudo apt upgrade -y
 sudo apt install python3-pip python3-gpiozero python3-opencv
 pip3 install numpy opencv-python pyserial
+```
+4. Hardware Wiring / Pin-Mapping
 
-3. Hardware Wiring / Pin-Mapping
-
-Refer to /docs/pinmap.md (or equivalently /hardware/pinmap.xlsx) for detailed pin assignments.
 Key summary:
 
 Thruster PWM → GPIO pins 12, 13, 18, 19
