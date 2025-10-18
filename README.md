@@ -1,9 +1,10 @@
 # Sinkers – MIT BWSI AUV Challenge
 
 ## Project Overview  
-The *Sinkers* project was developed for the MIT Beaver Works Summer Institute Autonomous Underwater Vehicle Challenge — a rigorous underwater robotics competition where teams design, build, and program a BlueFin Sandshark autonomous underwater vehicle  (AUV) to navigate a buoy field course.
-This repository contains the flight-software, sensor drivers, control logic, mission automation and test protocols for the team’s AUV using the Bluefin Sandshark hull (or similar configuration).  
-See the project’s overview page for media and results: [https://www.aidanrc.com/mit-bwsi-auv-challenge](https://www.aidanrc.com/mit-bwsi-auv-challenge)
+The *Sinkers* project was developed for the MIT Lincoln Labs Beaver Works Summer Institute (BWSI) Autonomous Underwater Vehicle Challenge — a rigorous underwater robotics competition where teams design, build, and program a BlueFin Sandshark autonomous underwater vehicle  (AUV) to navigate a buoy field course.
+This repository contains the flight-software, sensor drivers, control logic, mission automation and test protocols for the team’s AUV using the Bluefin Sandshark hull. 
+
+See this project page for more information: [https://www.aidanrc.com/mit-bwsi-auv-challenge](https://www.aidanrc.com/mit-bwsi-auv-challenge)
 This was done in collaboration with Bobby Wang, Naomi Naranjo, and Matthew Weng 
 
 
@@ -33,7 +34,7 @@ The AUV is built on the following primary subsystems:
 - Versioning of dependencies and environment scripts included in `/env` (or requirements file).
 
 ### Module Structure  
-/src
+```/src
 ├─ hardware_interface/
 │ ├ motors.py
 │ ├ sensors.py
@@ -47,7 +48,7 @@ The AUV is built on the following primary subsystems:
 │ ├ mission_planner.py
 │ └ waypoints.py
 └─ main.py
-
+```
 
 ### Runtime Control Loop (Simplified Pseudocode)  
 ```python
