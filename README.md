@@ -8,7 +8,7 @@ This was done in collaboration with Bobby Wang, Naomi Naranjo, and Matthew Weng
 
 
 ## Demonstration  
-Here is a test-run video from a recent pool/test-tank run:  
+Test Run #3
 [![Sinkers AUV Test Run](https://img.youtube.com/vi/z71xyqpF_E0/0.jpg)](https://www.youtube.com/watch?v=z71xyqpF_E0)
 
 ## Key Capabilities  
