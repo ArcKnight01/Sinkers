@@ -1,7 +1,7 @@
 # Sinkers – MIT BWSI AUV Challenge
 
 ## Project Overview  
-The *Sinkers* project was developed for the MIT Beaver Works Summer Institute Autonomous Underwater Vehicle Challenge — a rigorous underwater robotics competition where teams design, build, and program an autonomous underwater vehicle (AUV) to navigate a buoy field course.
+The *Sinkers* project was developed for the MIT Beaver Works Summer Institute Autonomous Underwater Vehicle Challenge — a rigorous underwater robotics competition where teams design, build, and program a BlueFin Sandshark autonomous underwater vehicle  (AUV) to navigate a buoy field course.
 This repository contains the flight-software, sensor drivers, control logic, mission automation and test protocols for the team’s AUV using the Bluefin Sandshark hull (or similar configuration).  
 See the project’s overview page for media and results: [https://www.aidanrc.com/mit-bwsi-auv-challenge](https://www.aidanrc.com/mit-bwsi-auv-challenge)
 This was done in collaboration with Bobby Wang, Naomi Naranjo, and Matthew Weng 
@@ -64,7 +64,7 @@ while mission_not_done:
     thrusters.set_command(command)
     log.write(sensor_data, command)
 shutdown safe
-
+```
 Setup & Duplication Guide
 
 1. Prepare System
