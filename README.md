@@ -2,45 +2,41 @@
 # Sinkers – MIT BWSI AUV Challenge
 
 ## Project Overview
-The **Sinkers** project was developed for the MIT Lincoln Labs **Beaver Works Summer Institute** (BWSI) Autonomous Underwater Vehicle Challenge.  In this competition teams design, build and program a BlueFin Sandshark AUV to navigate a buoy field course.  This repository contains the flight‑software, sensor drivers, control logic, mission automation and test protocols used by the team’s AUVhttps://github.com/ArcKnight01/Sinkers/blob/HEAD/README.md#L3-L9.  For additional context and media, see the project page at `aidanrc.com`.
+The **Sinkers** project was developed for the MIT Lincoln Labs **Beaver Works Summer Institute** (BWSI) Autonomous Underwater Vehicle Challenge.  In this competition teams design, build and program a BlueFin Sandshark AUV to navigate a buoy field course.  This repository contains the flight‑software, sensor drivers, control logic, mission automation and test protocols used by the team’s AUVhttps://github.com/ArcKnight01/Sinkers/blob/HEAD/README.md#L3-L9.  For additional context and media, see this project page [https://www.aidanrc.com/mit-bwsi-auv-challenge
+](https://www.aidanrc.com/mit-bwsi-auv-challenge)
 
 ## Hardware Architecture
-This AUV uses a modular architecture with the following major subsystemshttps://github.com/ArcKnight01/Sinkers/blob/HEAD/README.md#L22-L28:
-
+This AUV uses a modular architecture with the following major subsystems:
 | Subsystem        | Description                                                                 | Interface/Notes         |
 |------------------|-----------------------------------------------------------------------------|-------------------------|
 | **Hull/Buoyancy**| Pressure‑rated cylinder with sealed through‑hull wiring and a main battery pack | Physical structure      |
 | **Propulsion & Steering** | Thrusters for forward/reverse and vertical motion; rudders for yaw control | PWM thruster drivers    |
-| **Sensors**      | IMU for orientation, depth/pressure sensor, optional sonar/pinger, and cameras for visionhttps://github.com/ArcKnight01/Sinkers/blob/HEAD/README.md#L22-L28 | I²C/SPI/CSI/USB         |
-| **Compute**      | Embedded computer (e.g., Raspberry Pi 4B+) running Python and C++ control softwarehttps://github.com/ArcKnight01/Sinkers/blob/HEAD/README.md#L22-L28 | GPIO, I²C, SPI          |
-| **Power**        | 12 V battery with 5 V logic regulator; common ground and waterproof connectorshttps://github.com/ArcKnight01/Sinkers/blob/HEAD/README.md#L22-L28 | Power distribution      |
+| **Sensors**      | IMU for orientation, depth/pressure sensor, optional sonar/pinger, and cameras for vision | I²C/SPI/CSI/USB         |
+| **Compute**      | Embedded computer (e.g., Raspberry Pi 4B+) running Python and C++ control software | GPIO, I²C, SPI          |
+| **Power**        | 12 V battery with 5 V logic regulator; common ground and waterproof connectors | Power distribution      |
 
 ### Pinout Summary
 The original BlueFin Sandshark hardware uses the following pin mappingshttps://github.com/ArcKnight01/Sinkers/blob/HEAD/README.md#L94-L104.  If you modify the wiring or use a different board, update these accordingly.
 
 | Device/Signal      | Pin(s)                        | Notes                                     |
 |--------------------|-------------------------------|-------------------------------------------|
-| **Thrusters**      | GPIO 12, GPIO 13, GPIO 18, GPIO 19 | PWM channels for left, right and vertical thrustershttps://github.com/ArcKnight01/Sinkers/blob/HEAD/README.md#L94-L102 |
-| **IMU (I²C)**      | SDA → GPIO 2; SCL → GPIO 3     | 9‑DOF orientation sensorhttps://github.com/ArcKnight01/Sinkers/blob/HEAD/README.md#L94-L102 |
-| **Depth sensor**   | SPI/I²C bus (config‑dependent) | Pressure sensor for depthhttps://github.com/ArcKnight01/Sinkers/blob/HEAD/README.md#L94-L104 |
-| **Cameras**        | CSI or USB ports              | Pi camera module or USB webcamshttps://github.com/ArcKnight01/Sinkers/blob/HEAD/README.md#L94-L104 |
+| **Thrusters**      | GPIO 12, GPIO 13, GPIO 18, GPIO 19 | PWM channels for left, right and vertical thrusters |
+| **IMU (I²C)**      | SDA → GPIO 2; SCL → GPIO 3     | 9‑DOF orientation sensor |
+| **Depth sensor**   | SPI/I²C bus (config‑dependent) | Pressure sensor for depth |
+| **Cameras**        | CSI or USB ports              | Pi camera module |
 | **Safety switches**| Additional GPIO lines         | Battery cutoff and kill‑switch (verify wiring) |
 
-> **Note:**  The code in this repository focuses on camera utilities and communications; thruster control and sensor drivers live in the main “Sinkers” codebase on the team lead’s account.  These pin assignments come from our original hardware configurationhttps://github.com/ArcKnight01/Sinkers/blob/HEAD/README.md#L94-L104.
 
 ## Software Architecture
-The code is written primarily in Python 3.x and depends on `numpy`, `opencv‑python` and various sensor librarieshttps://github.com/ArcKnight01/Sinkers/blob/HEAD/README.md#L30-L34.  The repository currently contains camera processing utilities and a network interface for the BlueFin Sandshark front‑ and back‑seat computers.  Key modules includehttps://github.com/ArcKnight01/Sinkers/blob/HEAD/README.md#L36-L51:
+The code is written primarily in Python 3.x and depends on `numpy`, `opencv‑python` and various sensor libraries.  The repository currently contains camera processing utilities and a network interface for the BlueFin Sandshark front‑ and back‑seat computers.  Key modules include:
 
 - **Image_Processor.py** – captures images from the Pi camera or simulation and detects buoys.
 - **MissionReconstruction.py** – reconstructs mission logs for analysis.
 - **Sandshark_Interface.py** – TCP server/client providing command and telemetry exchange between the ‘front seat’ (payload computer) and ‘back seat’ (navigation computer).  It handles socket communications and message queuing.
 - **cam_util.py**, **camera_util.py**, **pool_cam_util.py** – helper functions for pixel‑to‑angle conversions and buoy detection.
 
-Original modules referenced in the BWSI curriculum (e.g., `hardware_interface/motors.py`, `control/autonomy.py`) are **not** present in this fork; they were part of a separate repository.
-
 ## Control Loop
-The overall control loop for an autonomous mission follows this logichttps://github.com/ArcKnight01/Sinkers/blob/HEAD/README.md#L55-L67:
-
+The overall control loop for an autonomous mission follows this logic:
 ```python
 initialize all modules (hardware, sensors, control)
 select mode (manual or autonomous)
@@ -75,7 +71,7 @@ Although the core loop remains, this repository only implements the camera and c
 
 3. **Calibrate sensors:**
 
-   Run the calibration scripts (if available) to zero your IMU and depth sensorhttps://github.com/ArcKnight01/Sinkers/blob/HEAD/README.md#L106-L112:
+   Run the calibration scripts (if available) to zero your IMU and depth sensor:
 
    ```bash
    python3 scripts/calibrate_imu.py
@@ -90,7 +86,7 @@ Although the core loop remains, this repository only implements the camera and c
    python3 main.py --mode autonomous --config configs/mission1.yaml
    ```
 
-   Use `--mode manual` for tele‑operation.  Logs are saved under `logs/YYYY_MM_DD_HHMMSS/` for post‑run analysishttps://github.com/ArcKnight01/Sinkers/blob/HEAD/README.md#L121-L129.
+   Use `--mode manual` for tele‑operation.  Logs are saved under `logs/YYYY_MM_DD_HHMMSS/` for post‑run analysis.
 
 5. **Analyze results:**
 
@@ -109,6 +105,6 @@ Below are test runs from our AUV challenge playlist.  Each thumbnail links to th
 This project is released under the **MIT License**https://github.com/ArcKnight01/Sinkers/blob/HEAD/README.md#L131-L138.
 
 ## Acknowledgements
-Thanks to the MIT BWSI instructors and mentors (especially Madeleine Miller and Joseph Edwards) and to teammates Bobby Wang, Naomi Naranjo, and Matthew Weng for their contributionshttps://github.com/ArcKnight01/Sinkers/blob/HEAD/README.md#L3-L9https://github.com/ArcKnight01/Sinkers/blob/HEAD/README.md#L131-L138.
+Thanks to the MIT BWSI instructors and mentors (especially Madeleine Miller and Joseph Edwards), BWSI director Joel Grimm, and our awesome TA Joseph Ntaimo, and to our teammates Aidan Carrier, Bobby Wang, Naomi Naranjo, and Matthew Weng for their contributions.
 
 ---
